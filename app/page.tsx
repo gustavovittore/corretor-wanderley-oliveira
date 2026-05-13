@@ -192,11 +192,13 @@ function SectionHeader({
   title,
   text,
   align = "center",
+  titleClassName = "",
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   text?: string;
   align?: "center" | "left";
+  titleClassName?: string;
 }) {
   return (
     <div
@@ -217,7 +219,9 @@ function SectionHeader({
           <span className="h-[2px] w-11 bg-[#D1AF66]" />
         ) : null}
       </div>
-      <h2 className="font-serif text-[1.92rem] font-normal leading-[1.08] text-white sm:text-[2.7rem] md:text-[3.02rem]">
+      <h2
+        className={`font-serif text-[1.92rem] font-normal leading-[1.08] text-white sm:text-[2.7rem] md:text-[3.02rem] ${titleClassName}`}
+      >
         {title}
       </h2>
       {text ? (
@@ -324,7 +328,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-30 mx-auto flex min-h-[100svh] w-full max-w-[1540px] items-end px-6 pb-16 pt-44 sm:px-10 lg:items-center lg:px-16 lg:pb-20 lg:pt-28">
+        <div className="relative z-30 mx-auto flex min-h-[100svh] w-full max-w-[1540px] items-end px-6 pb-12 pt-32 sm:px-10 sm:pb-16 sm:pt-44 lg:items-center lg:px-16 lg:pb-20 lg:pt-28">
           <div className="w-full min-w-0 max-w-[760px] lg:translate-y-8 xl:translate-y-10">
             <div className="mb-9 flex items-center gap-6">
               <span className="h-[2px] w-12 bg-[#D1AF66]" />
@@ -332,8 +336,8 @@ export default function Home() {
                 Consultoria imobiliária premium
               </p>
             </div>
-            <h1 className="font-serif text-[2.82rem] font-normal leading-[0.96] text-white sm:text-[4.55rem] lg:text-[4.62rem] xl:text-[5rem]">
-              <span className="block sm:whitespace-nowrap">Negocie imóveis</span>
+            <h1 className="max-w-[21rem] font-serif text-[2.34rem] font-normal leading-[1.02] text-white sm:max-w-none sm:text-[4.55rem] sm:leading-[0.96] lg:text-[4.62rem] xl:text-[5rem]">
+              <span className="block whitespace-nowrap">Negocie imóveis</span>
               <span className="block">
                 com <span className="text-[#D1AF66]">confiança</span>
               </span>
@@ -351,11 +355,21 @@ export default function Home() {
                 Conhecer serviços
               </GoldButton>
             </div>
-            <div className="mt-14 grid max-w-[330px] grid-cols-1 gap-5 text-white sm:max-w-3xl sm:grid-cols-3">
+            <div className="relative mx-auto mt-9 flex w-full max-w-[430px] justify-center overflow-hidden border-b border-[#D1AF66]/24 lg:hidden">
+              <Image
+                src="/brand/foto-wanderley-sem-fundo-principal.png.png"
+                alt="Wanderley Oliveira, corretor de imóveis"
+                width={760}
+                height={960}
+                priority
+                className="h-auto w-[96%] translate-y-2 drop-shadow-[0_30px_70px_rgba(0,0,0,0.75)]"
+              />
+            </div>
+            <div className="mt-8 grid max-w-[360px] grid-cols-1 gap-3 text-white sm:mt-14 sm:max-w-3xl sm:grid-cols-3 sm:gap-5">
               {heroHighlights.map((item, index) => (
                 <div
                   key={item.first}
-                  className={`flex items-center gap-4 ${
+                  className={`flex items-center gap-4 border border-white/10 bg-white/[0.035] px-4 py-4 sm:border-y-0 sm:border-r-0 sm:border-l-0 sm:bg-transparent sm:p-0 ${
                     index > 0 ? "sm:border-l sm:border-white/18 sm:pl-8" : ""
                   }`}
                 >
@@ -373,16 +387,6 @@ export default function Home() {
                   </p>
                 </div>
               ))}
-            </div>
-            <div className="mx-auto mt-10 flex w-full max-w-[430px] justify-center lg:hidden">
-              <Image
-                src="/brand/foto-wanderley-sem-fundo-principal.png.png"
-                alt="Wanderley Oliveira, corretor de imóveis"
-                width={760}
-                height={960}
-                priority
-                className="h-auto w-[82%] drop-shadow-[0_30px_70px_rgba(0,0,0,0.75)]"
-              />
             </div>
           </div>
         </div>
@@ -649,7 +653,13 @@ export default function Home() {
         <div className="mx-auto max-w-6xl border border-[#D1AF66]/32 bg-[linear-gradient(135deg,rgba(209,175,102,0.18),rgba(255,255,255,0.028))] px-7 py-16 text-center shadow-[0_40px_120px_rgba(0,0,0,0.45)] sm:px-12 md:py-24">
           <SectionHeader
             eyebrow="Atendimento direto"
-            title="Fale agora com Wanderley Oliveira"
+            title={
+              <>
+                Fale agora com{" "}
+                <span className="block sm:inline">Wanderley Oliveira</span>
+              </>
+            }
+            titleClassName="max-sm:mx-auto max-sm:max-w-[20rem] max-sm:text-[1.74rem] max-sm:leading-[1.08]"
             text="Tire dúvidas, solicite atendimento ou converse sobre compra, venda ou avaliação de imóvel com acompanhamento profissional."
           />
           <div className="flex flex-col justify-center gap-5 sm:flex-row">
