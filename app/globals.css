@@ -18,7 +18,6 @@ body {
   color: var(--foreground);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  overflow-x: hidden;
 }
 
 h1,
@@ -39,4 +38,106 @@ details summary::-webkit-details-marker {
 
 [id] {
   scroll-margin-top: 120px;
+}
+
+.section-shell {
+  background: #000000;
+  isolation: isolate;
+}
+
+.section-shell::after {
+  background:
+    radial-gradient(circle at 100% 8%, rgba(209, 175, 102, 0.09), transparent 30%),
+    radial-gradient(circle at 4% 92%, rgba(209, 175, 102, 0.07), transparent 28%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.section-heading {
+  text-wrap: balance;
+}
+
+.luxury-card {
+  backdrop-filter: none;
+}
+
+.card-surface {
+  background-color: #101010;
+}
+
+.cinema-backdrop {
+  pointer-events: none;
+}
+
+.property-types-bg-image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.security-bg-image {
+  object-fit: cover;
+  object-position: left bottom;
+}
+
+.process-bg-image {
+  object-fit: cover;
+  object-position: left center;
+}
+
+.commitment-bg-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.faq-bg-image {
+  object-fit: cover;
+  object-position: 46% center;
+}
+
+.choice-section::after {
+  display: none;
+}
+
+.choice-bg-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.premium-action {
+  position: relative;
+}
+
+.section-rule {
+  position: relative;
+}
+
+.faq-panel details[open] summary {
+  color: #d1af66;
+}
+
+.footer-map svg {
+  margin-top: 0.12rem;
+}
+
+@media (max-width: 640px) {
+  .section-shell {
+    min-height: auto;
+  }
+
+  .section-heading {
+    text-wrap: pretty;
+  }
+
+  .choice-bg-image {
+    object-position: 48% center;
+  }
+}
+
+@media (min-width: 768px) {
+  .property-types-bg-image {
+    object-fit: contain;
+  }
 }
