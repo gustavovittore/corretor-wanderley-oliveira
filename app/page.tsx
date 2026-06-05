@@ -503,7 +503,7 @@ export default function Home() {
             width={760}
             height={960}
             priority
-            className="h-auto w-full drop-shadow-[0_38px_90px_rgba(0,0,0,0.78)]"
+            className="h-auto w-[97%] drop-shadow-[0_38px_90px_rgba(0,0,0,0.78)]"
           />
         </div>
 
