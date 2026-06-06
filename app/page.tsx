@@ -691,10 +691,10 @@ export default function Home() {
                 "Apoio na negociação",
                 "Orientação documental",
               ].map((item) => (
-                <PremiumCard key={item} className="min-h-[108px] px-7 py-5 md:px-8 md:py-6">
+                <PremiumCard key={item} className="about-fact-card min-h-[96px] px-6 py-4 md:px-7 md:py-5">
                   <div className="relative z-10 flex h-full flex-col justify-center">
-                    <span className="mb-4 block h-px w-16 bg-[#D1AF66]/65" />
-                    <p className="text-[0.96rem] font-bold uppercase leading-7 tracking-[0.22em] text-white sm:text-[1.02rem]">
+                    <span className="mb-3 block h-px w-14 bg-[#D1AF66]/65" />
+                    <p className="about-fact-copy text-[0.9rem] font-bold uppercase leading-6 tracking-[0.2em] text-white sm:text-[0.96rem]">
                       {item}
                     </p>
                   </div>
@@ -843,8 +843,20 @@ export default function Home() {
                 </span>
                 <span className="relative z-10 hidden h-20 w-px bg-[#D1AF66]/58 sm:block" />
                 <div className="relative z-10 mt-4 sm:mt-0">
-                  <h3 className="security-value-title whitespace-nowrap font-serif text-[1.5rem] font-normal text-white sm:text-[1.62rem] xl:text-[1.72rem]">
-                    {item.title}
+                  <h3 className="security-value-title max-sm:whitespace-normal font-serif text-[1.5rem] font-normal leading-tight text-white sm:whitespace-nowrap sm:text-[1.62rem] xl:text-[1.72rem]">
+                    {item.title === "Suporte durante negociação" ? (
+                      <>
+                        Suporte durante
+                        <br className="sm:hidden" /> negociação
+                      </>
+                    ) : item.title === "Acompanhamento profissional" ? (
+                      <>
+                        Acompanhamento
+                        <br className="sm:hidden" /> profissional
+                      </>
+                    ) : (
+                      item.title
+                    )}
                   </h3>
                   <p className="card-copy mt-3 text-[1.1rem] leading-8 text-white/82 sm:text-[1.2rem] sm:leading-9">
                     {item.text}
@@ -1043,7 +1055,7 @@ export default function Home() {
                   FAQ
                 </p>
               </div>
-              <h2 className="faq-title faq-title-mobile max-w-[420px] font-serif text-[2.92rem] font-normal leading-[1.02] text-white sm:text-[4.6rem] lg:text-[5rem]">
+              <h2 className="faq-title faq-title-mobile max-w-[380px] font-serif text-[2.92rem] font-normal leading-[1.02] text-white sm:text-[4.15rem] lg:text-[4.38rem]">
                 <span className="block">Perguntas</span>
                 <span className="block">frequentes</span>
               </h2>

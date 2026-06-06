@@ -36,6 +36,8 @@ const requiredMarkers = [
   "section-rule",
   "card-surface",
   "about-facts",
+  "about-fact-card",
+  "about-fact-copy",
   "faq-panel",
   "footer-map",
   "Compromisso profissional",
@@ -141,8 +143,12 @@ assert.ok(
 );
 assert.ok(
   aboutSlice.includes("about-facts") &&
-    aboutSlice.includes("min-h-[108px]") &&
-    aboutSlice.includes("py-5"),
+    aboutSlice.includes("about-fact-card") &&
+    aboutSlice.includes("about-fact-copy") &&
+    aboutSlice.includes("min-h-[96px]") &&
+    aboutSlice.includes("px-6 py-4") &&
+    aboutSlice.includes("md:px-7 md:py-5") &&
+    aboutSlice.includes("sm:text-[0.96rem]"),
   "About mini cards must be shorter while preserving readable text",
 );
 assert.ok(
@@ -237,9 +243,13 @@ assert.ok(
 );
 assert.ok(
   securitySlice.includes("security-value-title") &&
-    securitySlice.includes("whitespace-nowrap") &&
+    securitySlice.includes("max-sm:whitespace-normal") &&
+    securitySlice.includes("sm:whitespace-nowrap") &&
+    securitySlice.includes('item.title === "Suporte durante negociação"') &&
+    securitySlice.includes('item.title === "Acompanhamento profissional"') &&
+    securitySlice.includes("sm:hidden") &&
     securitySlice.includes("xl:text-[1.72rem]"),
-  "Security card titles must stay on one line without a drastic font reduction",
+  "Security card titles must stay on one desktop line and allow controlled mobile wraps for cards 03 and 04",
 );
 
 assert.ok(
@@ -349,6 +359,9 @@ assert.ok(
   faqSlice.includes("faq-title") &&
     faqSlice.includes("faq-title-mobile") &&
     faqSlice.includes("text-[2.92rem]") &&
+    faqSlice.includes("sm:text-[4.15rem]") &&
+    faqSlice.includes("lg:text-[4.38rem]") &&
+    faqSlice.includes("max-w-[380px]") &&
     faqSlice.includes("faq-panel") &&
     faqSlice.includes("w-full") &&
     faqSlice.includes("min-w-0") &&
