@@ -40,7 +40,16 @@ const requiredMarkers = [
   "footer-map",
   "Compromisso profissional",
   "Escolha com calma",
-  "Fale agora com Wanderley Oliveira",
+  "Fale agora com",
+  "Wanderley Oliveira",
+  "mobile-section-title",
+  "services-title-mobile",
+  "property-types-title-mobile",
+  "process-title-mobile",
+  "choice-title-mobile",
+  "faq-title-mobile",
+  "cta-final-title-mobile",
+  "footer-pin-mobile",
 ];
 
 for (const marker of requiredMarkers) {
@@ -108,6 +117,8 @@ const activeHeader = readFileSync(new URL("../app/active-header.tsx", import.met
 
 assert.ok(
   aboutSlice.includes("about-title-tuned") &&
+    aboutSlice.includes("mobile-section-title") &&
+    aboutSlice.includes("max-sm:!text-[2.02rem]") &&
     aboutSlice.includes("Autoridade, escuta e") &&
     aboutSlice.includes("condu") &&
     aboutSlice.includes("decis"),
@@ -163,6 +174,20 @@ assert.ok(
     propertyTypesSlice.includes("sm:h-12 sm:w-12"),
   "Property type cards must render the golden icons at a balanced size",
 );
+assert.ok(
+  servicesSlice.includes("services-title-mobile") &&
+    servicesSlice.includes("mobile-section-title") &&
+    servicesSlice.includes("max-sm:max-w-[21.5rem]") &&
+    servicesSlice.includes("max-sm:!text-[2.02rem]"),
+  "Services title must be tuned only on mobile to reduce excessive line breaks",
+);
+assert.ok(
+  propertyTypesSlice.includes("property-types-title-mobile") &&
+    propertyTypesSlice.includes("mobile-section-title") &&
+    propertyTypesSlice.includes("max-sm:mx-auto") &&
+    propertyTypesSlice.includes("max-sm:!text-[2.02rem]"),
+  "Property types title must be tuned only on mobile for a balanced three-line layout",
+);
 
 assert.ok(
   securitySlice.includes("security-backdrop") &&
@@ -178,6 +203,9 @@ assert.ok(
 );
 assert.ok(
   securitySlice.includes("security-title") &&
+    securitySlice.includes("mobile-section-title") &&
+    securitySlice.includes("max-sm:max-w-[21.5rem]") &&
+    securitySlice.includes("max-sm:!text-[2.02rem]") &&
     securitySlice.includes("<span className=\"block\">Comprar ou vender</span>") &&
     securitySlice.includes("<span className=\"block\">") &&
     securitySlice.includes("encontrar oportunidade."),
@@ -225,14 +253,23 @@ assert.ok(
     processSlice.includes("opacity-100"),
   "Process section background must use the tuned visible reference framing",
 );
+assert.ok(
+  processSlice.includes("process-title-mobile") &&
+    processSlice.includes("mobile-section-title") &&
+    processSlice.includes("Atendimento claro,") &&
+    processSlice.includes("direto e acompanhado.") &&
+    processSlice.includes("block sm:inline"),
+  "Process title must use mobile-only controlled line breaks while preserving desktop flow",
+);
 
 assert.ok(
   choiceSlice.includes("choice-section") &&
     choiceSlice.includes("choice-bg-image") &&
     choiceSlice.includes("choice-card") &&
     choiceSlice.includes("choice-title") &&
+    choiceSlice.includes("choice-title-mobile") &&
     choiceSlice.includes("choice-cta") &&
-    choiceSlice.includes("choice-chevron"),
+    !choiceSlice.includes("choice-chevron"),
   "Choice section must use the tuned reference-matching structure",
 );
 assert.ok(
@@ -246,7 +283,9 @@ assert.ok(
   choiceSlice.includes("Seu próximo imóvel pode") &&
     choiceSlice.includes("estar mais perto do que") &&
     choiceSlice.includes("você imagina.") &&
-    choiceSlice.includes("max-w-[860px]"),
+    choiceSlice.includes("max-w-[860px]") &&
+    choiceSlice.includes("max-sm:max-w-[21.5rem]") &&
+    choiceSlice.includes("text-[2rem]"),
   "Choice title must use controlled premium line breaks",
 );
 assert.ok(
@@ -295,6 +334,8 @@ assert.ok(
 );
 assert.ok(
   faqSlice.includes("faq-title") &&
+    faqSlice.includes("faq-title-mobile") &&
+    faqSlice.includes("text-[2.92rem]") &&
     faqSlice.includes("faq-panel") &&
     faqSlice.includes("w-full") &&
     faqSlice.includes("min-w-0") &&
@@ -323,6 +364,8 @@ assert.ok(
 );
 assert.ok(
   finalCtaSlice.includes("cta-final-title") &&
+    finalCtaSlice.includes("cta-final-title-mobile") &&
+    finalCtaSlice.includes("block whitespace-nowrap sm:inline") &&
     finalCtaSlice.includes("cta-final-copy") &&
     finalCtaSlice.includes("cta-final-actions") &&
     finalCtaSlice.includes("cta-final-signature") &&
@@ -336,6 +379,11 @@ assert.ok(
   finalCtaSlice.includes("[object-position:29%_center]") &&
     !finalCtaSlice.includes("cta-final-chevron"),
   "Final CTA must frame the property on the left without rendering the lower arrow",
+);
+assert.ok(
+  footerSlice.includes("footer-pin-mobile") &&
+    footerSlice.includes("h-6 w-6 shrink-0 sm:h-7 sm:w-7"),
+  "Footer location icon must match the mobile size of the other footer icons without changing desktop",
 );
 
 for (const serviceIcon of [

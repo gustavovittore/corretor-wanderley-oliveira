@@ -616,7 +616,7 @@ export default function Home() {
             }
             text="Cada atendimento parte de uma leitura real da necessidade do cliente para reduzir ruídos e conduzir negociações com mais confiança."
             align="left"
-            titleClassName="max-w-5xl"
+            titleClassName="services-title-mobile mobile-section-title max-w-5xl max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08]"
           />
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
@@ -673,7 +673,7 @@ export default function Home() {
               }
               text="Wanderley Oliveira atua como especialista imobiliário para quem busca orientação personalizada, análise cuidadosa e apoio completo durante a negociação."
               align="left"
-              titleClassName="about-title-tuned max-w-[760px] !text-[2.08rem] sm:!text-[3rem] md:!text-[3.15rem] lg:!text-[3.25rem]"
+              titleClassName="about-title-tuned mobile-section-title max-w-[760px] max-sm:!text-[2.02rem] max-sm:leading-[1.08] sm:!text-[3rem] md:!text-[3.15rem] lg:!text-[3.25rem]"
               sectionTextClassName="about-intro-copy max-w-none lg:max-w-[800px]"
             />
             <p className="about-copy max-w-none text-[1.22rem] leading-9 text-white/82 sm:text-[1.34rem] sm:leading-10 lg:max-w-[800px]">
@@ -754,6 +754,7 @@ export default function Home() {
               </>
             }
             text="Uma experiência premium não precisa ser distante. O atendimento é claro, acessível e preparado para realidades diversas."
+            titleClassName="property-types-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08]"
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {propertyTypes.map((type) => (
@@ -818,7 +819,7 @@ export default function Home() {
               }
               text="Um processo imobiliário bem conduzido depende de método, leitura, documentação, negociação e acompanhamento atento."
               align="left"
-              titleClassName="security-title max-w-[660px] max-sm:!text-[1.9rem] max-sm:leading-[1.08] sm:!text-[3.18rem] md:!text-[3.52rem] lg:!text-[3.55rem]"
+              titleClassName="security-title mobile-section-title max-w-[660px] max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08] sm:!text-[3.18rem] md:!text-[3.52rem] lg:!text-[3.55rem]"
               sectionTextClassName="security-section-copy lg:max-w-[620px]"
             />
           </div>
@@ -864,8 +865,14 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-[1540px]">
           <SectionHeader
             eyebrow="Processo"
-            title="Atendimento claro, direto e acompanhado."
+            title={
+              <>
+                <span className="block sm:inline">Atendimento claro,</span>{" "}
+                <span className="block sm:inline">direto e acompanhado.</span>
+              </>
+            }
             text="Uma jornada organizada ajuda você a entender o que acontece em cada fase e a tomar decisões com mais tranquilidade."
+            titleClassName="process-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08]"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {process.map((step, index) => (
@@ -910,7 +917,7 @@ export default function Home() {
               <span className="h-[2px] w-12 bg-[#f3cd71] sm:w-[74px]" />
             </div>
 
-            <h2 className="choice-title mx-auto max-w-[860px] font-serif text-[2.45rem] font-normal leading-[1.04] text-white sm:text-[4.2rem] md:text-[4.65rem]">
+            <h2 className="choice-title choice-title-mobile mx-auto max-w-[860px] max-sm:max-w-[21.5rem] font-serif text-[2rem] font-normal leading-[1.06] text-white sm:text-[4.2rem] sm:leading-[1.04] md:text-[4.65rem]">
               <span className="block">Seu próximo imóvel pode</span>
               <span className="block">estar mais perto do que</span>
               <span className="block">você imagina.</span>
@@ -939,29 +946,6 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="choice-chevron mt-10 flex justify-center text-[#f3cd71]" aria-hidden="true">
-            <svg
-              viewBox="0 0 44 44"
-              className="h-12 w-12 drop-shadow-[0_0_12px_rgba(244,205,112,0.36)]"
-            >
-              <path
-                d="M10 14l12 12 12-12"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="4"
-              />
-              <path
-                d="M14 25l8 8 8-8"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="4"
-              />
-            </svg>
-          </div>
         </div>
       </section>
 
@@ -1044,7 +1028,7 @@ export default function Home() {
                   FAQ
                 </p>
               </div>
-              <h2 className="faq-title max-w-[420px] font-serif text-[3.15rem] font-normal leading-[1.02] text-white sm:text-[4.6rem] lg:text-[5rem]">
+              <h2 className="faq-title faq-title-mobile max-w-[420px] font-serif text-[2.92rem] font-normal leading-[1.02] text-white sm:text-[4.6rem] lg:text-[5rem]">
                 <span className="block">Perguntas</span>
                 <span className="block">frequentes</span>
               </h2>
@@ -1099,8 +1083,11 @@ export default function Home() {
               </p>
               <span className="h-[2px] w-14 bg-[#D1AF66]" />
             </div>
-            <h2 className="cta-final-title mx-auto max-w-[1180px] font-serif text-[2.55rem] font-normal leading-[1.04] text-white sm:text-[4.1rem] md:text-[4.2rem] lg:text-[4.35rem]">
-              Fale agora com Wanderley Oliveira
+            <h2 className="cta-final-title cta-final-title-mobile mx-auto max-w-[1180px] max-sm:max-w-[22rem] font-serif text-[2.12rem] font-normal leading-[1.04] text-white sm:text-[4.1rem] md:text-[4.2rem] lg:text-[4.35rem]">
+              <span className="block sm:inline">Fale agora com</span>{" "}
+              <span className="block whitespace-nowrap sm:inline">
+                Wanderley Oliveira
+              </span>
             </h2>
             <p className="cta-final-copy mx-auto mt-8 max-w-[840px] text-[1.08rem] leading-8 text-white/82 sm:text-[1.28rem] sm:leading-10">
               Tire dúvidas, solicite atendimento ou converse sobre compra, venda
@@ -1220,7 +1207,7 @@ export default function Home() {
             </p>
             <div className="footer-map space-y-6 text-[0.98rem] leading-7 text-white/72">
               <p className="flex gap-4">
-                <LineIcon name="pin" className="h-7 w-7 shrink-0" />
+                <LineIcon name="pin" className="footer-pin-mobile h-6 w-6 shrink-0 sm:h-7 sm:w-7" />
                 <span>
                   Rua Fausto Cardoso, número 1080
                   <span className="block">Capela/SE</span>
