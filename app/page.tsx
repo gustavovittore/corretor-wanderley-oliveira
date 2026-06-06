@@ -2,9 +2,9 @@ import Image from "next/image";
 import { ActiveHeader } from "./active-header";
 
 const primaryWhatsapp =
-  "https://wa.me/5579998221426?text=Olá,%20Wanderley.%20Quero%20receber%20atendimento%20imobiliário.";
+  "https://wa.me/5579996626934";
 const secondaryWhatsapp =
-  "https://wa.me/5579996626934?text=Olá,%20Wanderley.%20Vim%20pela%20landing%20page%20e%20gostaria%20de%20atendimento.";
+  "https://wa.me/5579998221426";
 
 const services = [
   {
@@ -36,6 +36,31 @@ const services = [
     title: "Imóveis comerciais",
     icon: "/icons/2/icon-imoveis-comerciais.png.png",
     text: "Suporte para identificar ou negociar espaços alinhados a operação, expansão e visão de investimento.",
+  },
+  {
+    title: "Regularização de imóvel",
+    icon: "/icons/3/icon-regularizacao-de-imoveis.png.png",
+    text: "Organização de documentos e orientação para deixar o imóvel em conformidade, reduzindo pendências e facilitando negociações.",
+  },
+  {
+    title: "Inventário",
+    icon: "/icons/3/icon-inventario.png.png",
+    text: "Apoio na condução de processos envolvendo imóveis herdados, com orientação para organizar etapas, documentos e possibilidades de venda.",
+  },
+  {
+    title: "Usucapião",
+    icon: "/icons/3/icon-usucapiao.png.png",
+    text: "Orientação para entender possibilidades de regularização por posse, com análise inicial do caso e encaminhamento adequado.",
+  },
+  {
+    title: "Projeto arquitetônico",
+    icon: "/icons/3/icon-projeto-arquitetônico.png.png",
+    text: "Suporte para conectar o cliente a soluções de projeto, planejamento e adequação do imóvel conforme o objetivo desejado.",
+  },
+  {
+    title: "Financiamento",
+    icon: "/icons/3/icon-financiamento.png.png",
+    text: "Orientação para analisar possibilidades de crédito, organizar informações e conduzir o cliente com mais clareza na compra do imóvel.",
   },
 ];
 
@@ -594,7 +619,7 @@ export default function Home() {
             titleClassName="max-w-5xl"
           />
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {services.map((service) => (
               <PremiumCard
                 key={service.title}
@@ -659,7 +684,7 @@ export default function Home() {
             </p>
             <div className="about-facts mt-10 grid gap-4 sm:grid-cols-2">
               {[
-                "CRECI 5355",
+                "CRECI: 5355 PF",
                 "Atendimento personalizado",
                 "Apoio na negociação",
                 "Orientação documental",
@@ -1090,6 +1115,9 @@ export default function Home() {
               Segundo WhatsApp
             </PremiumActionButton>
           </div>
+          <p className="cta-final-signature relative z-10 mt-10 text-[2.05rem] leading-tight text-[#D1AF66] sm:mt-12 sm:text-[2.65rem]">
+            Não é sobre imóveis, é sobre pessoas.
+          </p>
         </div>
       </section>
 
@@ -1104,7 +1132,7 @@ export default function Home() {
               className="h-auto w-44"
             />
             <p className="mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#D1AF66]">
-              CRECI 5355
+              CRECI: 519 PJ
             </p>
             <p className="mt-5 max-w-md leading-8 text-white/58">
               Corretor de imóveis com atendimento para compra, venda, avaliação
@@ -1126,7 +1154,7 @@ export default function Home() {
                   aria-hidden="true"
                   className="h-6 w-6 shrink-0 object-contain"
                 />
-                <span>(79) 99822-1426</span>
+                <span>(79) 99662-6934</span>
               </p>
               <p className="flex items-center gap-3.5">
                 <Image
@@ -1137,7 +1165,18 @@ export default function Home() {
                   aria-hidden="true"
                   className="h-6 w-6 shrink-0 object-contain"
                 />
-                <span>(79) 99662-6934</span>
+                <span>(79) 99822-1426</span>
+              </p>
+              <p className="flex items-center gap-3.5">
+                <Image
+                  src="/icons/email-icon-rodape.png.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                  aria-hidden="true"
+                  className="h-6 w-6 shrink-0 object-contain"
+                />
+                <span>consultoriacanna06@gmail.com</span>
               </p>
               <p className="flex items-center gap-3.5">
                 <Image
@@ -1159,30 +1198,49 @@ export default function Home() {
                   aria-hidden="true"
                   className="h-6 w-6 shrink-0 object-contain"
                 />
-                <span>@canna77_</span>
+                <span>@cannaconsultoria</span>
+              </p>
+              <p className="flex items-center gap-3.5">
+                <Image
+                  src="/icons/instagram-icon-rodape.png.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                  aria-hidden="true"
+                  className="h-6 w-6 shrink-0 object-contain"
+                />
+                <span>@wanderleydeoliveira</span>
               </p>
             </div>
           </div>
           <span className="hidden h-full w-px bg-[#D1AF66]/38 md:block" />
           <div>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#D1AF66]">
-              Endereços
+              Endereço
             </p>
             <div className="footer-map space-y-6 text-[0.98rem] leading-7 text-white/72">
               <p className="flex gap-4">
                 <LineIcon name="pin" className="h-7 w-7 shrink-0" />
                 <span>
-                Av. Augusto Franco, 2980 - Porto Novo - Aracaju-SE
-                </span>
-              </p>
-              <p className="flex gap-4">
-                <LineIcon name="pin" className="h-7 w-7 shrink-0" />
-                <span>
-                Av. Luíz Viana Filho, nº 13223, Hangar Business Park, Torre 2,
-                Sala 228, São Cristóvão, Salvador-BA CEP 41500-300
+                  Rua Fausto Cardoso, número 1080
+                  <span className="block">Capela/SE</span>
                 </span>
               </p>
             </div>
+          </div>
+        </div>
+        <div className="footer-legal mx-auto mt-12 flex max-w-[1540px] flex-col gap-4 border-t border-[#D1AF66]/18 pt-7 text-center text-[0.78rem] leading-6 text-white/52 md:flex-row md:items-center md:justify-between md:text-left">
+          <p>
+            Copyright © 2026 Corretor Wanderley Oliveira | Todos os direitos reservados.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-end">
+            <a href="/politica-de-privacidade" className="transition hover:text-[#D1AF66]">
+              Política de privacidade
+            </a>
+            <span className="text-white/28">|</span>
+            <a href="/termos-de-uso" className="transition hover:text-[#D1AF66]">
+              Termos de uso
+            </a>
           </div>
         </div>
       </footer>

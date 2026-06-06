@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 const primaryWhatsapp =
-  "https://wa.me/5579998221426?text=Ol%C3%A1,%20Wanderley.%20Quero%20receber%20atendimento%20imobili%C3%A1rio.";
+  "https://wa.me/5579996626934";
 
 const navItems = [
   { label: "Início", href: "#inicio", id: "inicio" },

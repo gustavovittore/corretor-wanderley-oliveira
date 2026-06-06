@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const page = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 
@@ -103,6 +103,8 @@ const finalCtaCardStart = finalCtaSlice.indexOf("cta-final-card");
 assert.ok(finalCtaCardStart !== -1, "Final CTA card marker is missing");
 const finalCtaBeforeCard = finalCtaSlice.slice(0, finalCtaCardStart);
 const finalCtaCardSlice = finalCtaSlice.slice(finalCtaCardStart);
+const footerSlice = sectionSlice("<footer");
+const activeHeader = readFileSync(new URL("../app/active-header.tsx", import.meta.url), "utf8");
 
 assert.ok(
   aboutSlice.includes("about-title-tuned") &&
@@ -323,9 +325,12 @@ assert.ok(
   finalCtaSlice.includes("cta-final-title") &&
     finalCtaSlice.includes("cta-final-copy") &&
     finalCtaSlice.includes("cta-final-actions") &&
+    finalCtaSlice.includes("cta-final-signature") &&
+    !finalCtaSlice.includes("font-[family:var(--font-signature)]") &&
     finalCtaSlice.includes("Quero falar no WhatsApp") &&
-    finalCtaSlice.includes("Segundo WhatsApp"),
-  "Final CTA content and desktop actions must keep the current text with reference spacing",
+    finalCtaSlice.includes("Segundo WhatsApp") &&
+    finalCtaSlice.includes("Não é sobre imóveis, é sobre pessoas."),
+  "Final CTA content, desktop actions, and signature phrase must keep the current reference spacing without the broken Tailwind font utility",
 );
 assert.ok(
   finalCtaSlice.includes("[object-position:29%_center]") &&
@@ -348,6 +353,49 @@ assert.ok(
     servicesSlice.includes("h-11 w-11") &&
     !servicesSlice.includes("0{index + 1}"),
   "Services cards must replace numeric labels with proportional icon images",
+);
+for (const [title, text] of [
+  [
+    "Regularização de imóvel",
+    "Organização de documentos e orientação para deixar o imóvel em conformidade",
+  ],
+  [
+    "Inventário",
+    "Apoio na condução de processos envolvendo imóveis herdados",
+  ],
+  [
+    "Usucapião",
+    "Orientação para entender possibilidades de regularização por posse",
+  ],
+  [
+    "Projeto arquitetônico",
+    "Suporte para conectar o cliente a soluções de projeto",
+  ],
+  [
+    "Financiamento",
+    "Orientação para analisar possibilidades de crédito",
+  ],
+]) {
+  assert.ok(page.includes(title), `Services data must include: ${title}`);
+  assert.ok(page.includes(text), `Services data must include copy for: ${title}`);
+}
+for (const [title, icon] of [
+  ["Regularização de imóvel", "/icons/3/icon-regularizacao-de-imoveis.png.png"],
+  ["Inventário", "/icons/3/icon-inventario.png.png"],
+  ["Usucapião", "/icons/3/icon-usucapiao.png.png"],
+  ["Projeto arquitetônico", "/icons/3/icon-projeto-arquitetônico.png.png"],
+  ["Financiamento", "/icons/3/icon-financiamento.png.png"],
+]) {
+  assert.ok(page.includes(`title: "${title}"`), `Services data must include title: ${title}`);
+  assert.ok(page.includes(`icon: "${icon}"`), `Services data must use icon for: ${title}`);
+  assert.ok(
+    existsSync(new URL(`../public${icon}`, import.meta.url)),
+    `Service icon file must exist: ${icon}`,
+  );
+}
+assert.ok(
+  servicesSlice.includes("xl:grid-cols-3") && servicesSlice.includes("2xl:grid-cols-4"),
+  "Services grid must remain balanced after adding the five new cards",
 );
 
 for (const commitmentIcon of [
@@ -420,4 +468,72 @@ assert.ok(
     heroSlice.includes("Negocie im") &&
     heroSlice.includes("Conhecer servi"),
   "Hero section source markers changed unexpectedly",
+);
+
+for (const marker of [
+  "(79) 99662-6934",
+  "(79) 99822-1426",
+  "consultoriacanna06@gmail.com",
+  "swanderley60@gmail.com",
+  "@cannaconsultoria",
+  "@wanderleydeoliveira",
+  "Rua Fausto Cardoso, número 1080",
+  "Capela/SE",
+  "Copyright © 2026 Corretor Wanderley Oliveira | Todos os direitos reservados.",
+  "Política de privacidade",
+  "Termos de uso",
+]) {
+  assert.ok(footerSlice.includes(marker), `Footer must include: ${marker}`);
+}
+
+assert.ok(
+  footerSlice.indexOf("(79) 99662-6934") < footerSlice.indexOf("(79) 99822-1426"),
+  "Footer must list the main WhatsApp before the secondary WhatsApp",
+);
+assert.ok(
+  !footerSlice.includes("Av. Augusto Franco") &&
+    !footerSlice.includes("Hangar Business Park") &&
+    footerSlice.includes("Endereço"),
+  "Footer must remove old addresses and use the singular address title",
+);
+assert.ok(
+  footerSlice.includes("footer-legal") &&
+    footerSlice.includes('href="/politica-de-privacidade"') &&
+    footerSlice.includes('href="/termos-de-uso"') &&
+    !footerSlice.includes('href="#"') &&
+    footerSlice.includes("md:flex-row") &&
+    footerSlice.includes("md:text-left"),
+  "Footer legal line must be discreet, responsive, and link to the legal pages",
+);
+assert.ok(
+  css.includes('@font-face') &&
+    css.includes('font-family: "AstonScriptBold-Bold"') &&
+    css.includes('url("/fonts/Aston Script.ttf")') &&
+    css.includes("font-weight: 700"),
+  "Global CSS must load the Aston Script font file with @font-face",
+);
+assert.ok(
+  css.includes('--font-signature: "AstonScriptBold-Bold"') &&
+    css.includes(".cta-final-signature") &&
+    css.includes("font-family: var(--font-signature);") &&
+    !page.includes("font-[family:var(--font-signature)]"),
+  "Aston Script must be applied only to the final CTA signature phrase through CSS",
+);
+
+assert.ok(
+  aboutSlice.includes("CRECI: 5355 PF") && !aboutSlice.includes('"CRECI 5355"'),
+  "About section CRECI card must show the individual registration with PF",
+);
+assert.ok(
+  footerSlice.includes("CRECI: 519 PJ") && !footerSlice.includes("CRECI 5355"),
+  "Footer CRECI must show the company registration with PJ",
+);
+assert.ok(
+  page.includes('const primaryWhatsapp =\n  "https://wa.me/5579996626934";') &&
+    activeHeader.includes('const primaryWhatsapp =\n  "https://wa.me/5579996626934";'),
+  "All primary WhatsApp buttons must use the main number link exactly",
+);
+assert.ok(
+  page.includes('const secondaryWhatsapp =\n  "https://wa.me/5579998221426";'),
+  "The final CTA secondary WhatsApp button must use the secondary number link exactly",
 );
