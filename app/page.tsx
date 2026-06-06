@@ -821,12 +821,14 @@ export default function Home() {
                     </span>{" "}
                     que
                   </span>
-                  <span className="block">encontrar oportunidade.</span>
+                  <span className="block max-sm:whitespace-nowrap">
+                    encontrar oportunidade.
+                  </span>
                 </>
               }
               text="Um processo imobiliário bem conduzido depende de método, leitura, documentação, negociação e acompanhamento atento."
               align="left"
-              titleClassName="security-title mobile-section-title max-w-[660px] max-sm:max-w-[21.5rem] max-sm:!text-[1.95rem] max-sm:leading-[1.08] sm:!text-[3.18rem] md:!text-[3.52rem] lg:!text-[3.55rem]"
+              titleClassName="security-title mobile-section-title max-w-[660px] max-sm:max-w-[21.5rem] max-sm:!text-[1.82rem] max-sm:leading-[1.08] sm:!text-[3.18rem] md:!text-[3.52rem] lg:!text-[3.55rem]"
               sectionTextClassName="security-section-copy lg:max-w-[620px]"
             />
           </div>
@@ -875,11 +877,13 @@ export default function Home() {
             title={
               <>
                 <span className="block sm:inline">Atendimento claro,</span>{" "}
-                <span className="block sm:inline">direto e acompanhado.</span>
+                <span className="block whitespace-nowrap sm:inline">
+                  direto e acompanhado.
+                </span>
               </>
             }
             text="Uma jornada organizada ajuda você a entender o que acontece em cada fase e a tomar decisões com mais tranquilidade."
-            titleClassName="process-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[1.95rem] max-sm:leading-[1.08]"
+            titleClassName="process-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[22.5rem] max-sm:!text-[1.82rem] max-sm:leading-[1.08]"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {process.map((step, index) => (
@@ -924,13 +928,14 @@ export default function Home() {
               <span className="h-[2px] w-12 bg-[#f3cd71] sm:w-[74px]" />
             </div>
 
-            <h2 className="choice-title choice-title-mobile mx-auto max-w-[860px] max-sm:max-w-[21.5rem] font-serif text-[2rem] font-normal leading-[1.06] text-white sm:text-[4.2rem] sm:leading-[1.04] md:text-[4.65rem]">
+            <h2 className="choice-title choice-title-mobile mx-auto max-w-[860px] max-sm:max-w-[21.5rem] font-serif text-[1.74rem] font-normal leading-[1.05] text-white sm:text-[4.2rem] sm:leading-[1.04] md:text-[4.65rem]">
               <span className="hidden sm:block">Seu próximo imóvel pode</span>
               <span className="hidden sm:block">estar mais perto do que</span>
               <span className="hidden sm:block">você imagina.</span>
-              <span className="block sm:hidden">Seu próximo imóvel</span>
-              <span className="block sm:hidden">pode estar mais perto</span>
-              <span className="block sm:hidden">do que você imagina.</span>
+              <span className="block sm:hidden">Seu próximo</span>
+              <span className="block sm:hidden">imóvel pode estar</span>
+              <span className="block sm:hidden">mais perto do que</span>
+              <span className="block sm:hidden">você imagina.</span>
             </h2>
 
             <span className="mt-7 block h-[2px] w-16 bg-[#f3cd71] sm:mt-8" />
@@ -1093,7 +1098,7 @@ export default function Home() {
               </p>
               <span className="h-[2px] w-14 bg-[#D1AF66] max-sm:w-8" />
             </div>
-            <h2 className="cta-final-title cta-final-title-mobile mx-auto max-w-[1180px] max-sm:max-w-[22rem] font-serif text-[2.12rem] font-normal leading-[1.04] text-white sm:text-[4.1rem] md:text-[4.2rem] lg:text-[4.35rem]">
+            <h2 className="cta-final-title cta-final-title-mobile mx-auto max-w-[1180px] max-sm:max-w-[22rem] font-serif text-[1.98rem] font-normal leading-[1.04] text-white sm:text-[4.1rem] md:text-[4.2rem] lg:text-[4.35rem]">
               <span className="block sm:inline">Fale agora com</span>{" "}
               <span className="block whitespace-nowrap sm:inline">
                 Wanderley Oliveira

@@ -210,7 +210,8 @@ assert.ok(
   securitySlice.includes("security-title") &&
     securitySlice.includes("mobile-section-title") &&
     securitySlice.includes("max-sm:max-w-[21.5rem]") &&
-    securitySlice.includes("max-sm:!text-[1.95rem]") &&
+    securitySlice.includes("max-sm:!text-[1.82rem]") &&
+    securitySlice.includes("max-sm:whitespace-nowrap") &&
     securitySlice.includes("<span className=\"block\">Comprar ou vender</span>") &&
     securitySlice.includes("<span className=\"block\">") &&
     securitySlice.includes("encontrar oportunidade."),
@@ -261,10 +262,11 @@ assert.ok(
 assert.ok(
   processSlice.includes("process-title-mobile") &&
     processSlice.includes("mobile-section-title") &&
-    processSlice.includes("max-sm:!text-[1.95rem]") &&
+    processSlice.includes("max-sm:max-w-[22.5rem]") &&
+    processSlice.includes("max-sm:!text-[1.82rem]") &&
     processSlice.includes("Atendimento claro,") &&
     processSlice.includes("direto e acompanhado.") &&
-    processSlice.includes("block sm:inline"),
+    processSlice.includes("block whitespace-nowrap sm:inline"),
   "Process title must use mobile-only controlled line breaks while preserving desktop flow",
 );
 
@@ -288,14 +290,15 @@ assert.ok(
 assert.ok(
   choiceSlice.includes("Seu próximo imóvel pode") &&
     choiceSlice.includes("estar mais perto do que") &&
-    choiceSlice.includes("pode estar mais perto") &&
-    choiceSlice.includes("do que você imagina.") &&
+    choiceSlice.includes("Seu próximo</span>") &&
+    choiceSlice.includes("imóvel pode estar") &&
+    choiceSlice.includes("mais perto do que") &&
+    choiceSlice.includes("você imagina.") &&
     choiceSlice.includes("hidden sm:block") &&
     choiceSlice.includes("sm:hidden") &&
-    choiceSlice.includes("você imagina.") &&
     choiceSlice.includes("max-w-[860px]") &&
     choiceSlice.includes("max-sm:max-w-[21.5rem]") &&
-    choiceSlice.includes("text-[2rem]"),
+    choiceSlice.includes("text-[1.74rem]"),
   "Choice title must use controlled premium line breaks",
 );
 assert.ok(
@@ -380,6 +383,7 @@ assert.ok(
     finalCtaSlice.includes("max-sm:gap-3") &&
     finalCtaSlice.includes("max-sm:w-8") &&
     finalCtaSlice.includes("max-sm:tracking-[0.28em]") &&
+    finalCtaSlice.includes("text-[1.98rem]") &&
     finalCtaSlice.includes("block whitespace-nowrap sm:inline") &&
     finalCtaSlice.includes("cta-final-copy") &&
     finalCtaSlice.includes("cta-final-actions") &&
