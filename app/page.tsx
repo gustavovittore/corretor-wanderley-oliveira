@@ -684,17 +684,17 @@ export default function Home() {
               organizada, sem promessas exageradas e sem atalhos que comprometam
               a confiança.
             </p>
-            <div className="about-facts mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="about-facts mt-10 grid gap-4 sm:grid-cols-2 lg:w-[88%]">
               {[
                 "CRECI: 5355 PF",
                 "Atendimento personalizado",
                 "Apoio na negociação",
                 "Orientação documental",
               ].map((item) => (
-                <PremiumCard key={item} className="about-fact-card min-h-[96px] px-6 py-4 md:px-7 md:py-5">
+                <PremiumCard key={item} className="about-fact-card min-h-[96px] px-6 py-4 md:px-7 md:py-5 lg:min-h-[86px] lg:px-6 lg:py-4">
                   <div className="relative z-10 flex h-full flex-col justify-center">
-                    <span className="mb-3 block h-px w-14 bg-[#D1AF66]/65" />
-                    <p className="about-fact-copy text-[0.9rem] font-bold uppercase leading-6 tracking-[0.2em] text-white sm:text-[0.96rem]">
+                    <span className="mb-3 block h-px w-14 bg-[#D1AF66]/65 lg:w-12" />
+                    <p className="about-fact-copy text-[0.9rem] font-bold uppercase leading-6 tracking-[0.2em] text-white sm:text-[0.96rem] lg:text-[0.88rem]">
                       {item}
                     </p>
                   </div>

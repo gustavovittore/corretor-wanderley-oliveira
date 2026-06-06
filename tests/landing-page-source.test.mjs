@@ -145,11 +145,16 @@ assert.ok(
   aboutSlice.includes("about-facts") &&
     aboutSlice.includes("about-fact-card") &&
     aboutSlice.includes("about-fact-copy") &&
+    aboutSlice.includes("lg:w-[88%]") &&
     aboutSlice.includes("min-h-[96px]") &&
     aboutSlice.includes("px-6 py-4") &&
     aboutSlice.includes("md:px-7 md:py-5") &&
+    aboutSlice.includes("lg:min-h-[86px]") &&
+    aboutSlice.includes("lg:px-6 lg:py-4") &&
+    aboutSlice.includes("lg:w-12") &&
+    aboutSlice.includes("lg:text-[0.88rem]") &&
     aboutSlice.includes("sm:text-[0.96rem]"),
-  "About mini cards must be shorter while preserving readable text",
+  "About mini cards must be subtly smaller on desktop while preserving mobile and readability",
 );
 assert.ok(
   aboutSlice.includes("about-photo-card") &&
