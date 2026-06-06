@@ -49,6 +49,8 @@ const requiredMarkers = [
   "choice-title-mobile",
   "faq-title-mobile",
   "cta-final-title-mobile",
+  "cta-final-mobile-content",
+  "cta-final-kicker",
   "footer-pin-mobile",
 ];
 
@@ -118,7 +120,8 @@ const activeHeader = readFileSync(new URL("../app/active-header.tsx", import.met
 assert.ok(
   aboutSlice.includes("about-title-tuned") &&
     aboutSlice.includes("mobile-section-title") &&
-    aboutSlice.includes("max-sm:!text-[2.02rem]") &&
+    aboutSlice.includes("max-sm:!text-[1.95rem]") &&
+    aboutSlice.includes("max-sm:whitespace-nowrap") &&
     aboutSlice.includes("Autoridade, escuta e") &&
     aboutSlice.includes("condu") &&
     aboutSlice.includes("decis"),
@@ -185,7 +188,9 @@ assert.ok(
   propertyTypesSlice.includes("property-types-title-mobile") &&
     propertyTypesSlice.includes("mobile-section-title") &&
     propertyTypesSlice.includes("max-sm:mx-auto") &&
-    propertyTypesSlice.includes("max-sm:!text-[2.02rem]"),
+    propertyTypesSlice.includes("max-sm:!text-[1.95rem]") &&
+    propertyTypesSlice.includes("Atendimento para") &&
+    propertyTypesSlice.includes("block sm:inline"),
   "Property types title must be tuned only on mobile for a balanced three-line layout",
 );
 
@@ -205,7 +210,7 @@ assert.ok(
   securitySlice.includes("security-title") &&
     securitySlice.includes("mobile-section-title") &&
     securitySlice.includes("max-sm:max-w-[21.5rem]") &&
-    securitySlice.includes("max-sm:!text-[2.02rem]") &&
+    securitySlice.includes("max-sm:!text-[1.95rem]") &&
     securitySlice.includes("<span className=\"block\">Comprar ou vender</span>") &&
     securitySlice.includes("<span className=\"block\">") &&
     securitySlice.includes("encontrar oportunidade."),
@@ -256,6 +261,7 @@ assert.ok(
 assert.ok(
   processSlice.includes("process-title-mobile") &&
     processSlice.includes("mobile-section-title") &&
+    processSlice.includes("max-sm:!text-[1.95rem]") &&
     processSlice.includes("Atendimento claro,") &&
     processSlice.includes("direto e acompanhado.") &&
     processSlice.includes("block sm:inline"),
@@ -282,6 +288,10 @@ assert.ok(
 assert.ok(
   choiceSlice.includes("Seu próximo imóvel pode") &&
     choiceSlice.includes("estar mais perto do que") &&
+    choiceSlice.includes("pode estar mais perto") &&
+    choiceSlice.includes("do que você imagina.") &&
+    choiceSlice.includes("hidden sm:block") &&
+    choiceSlice.includes("sm:hidden") &&
     choiceSlice.includes("você imagina.") &&
     choiceSlice.includes("max-w-[860px]") &&
     choiceSlice.includes("max-sm:max-w-[21.5rem]") &&
@@ -365,6 +375,11 @@ assert.ok(
 assert.ok(
   finalCtaSlice.includes("cta-final-title") &&
     finalCtaSlice.includes("cta-final-title-mobile") &&
+    finalCtaSlice.includes("cta-final-mobile-content") &&
+    finalCtaSlice.includes("cta-final-kicker") &&
+    finalCtaSlice.includes("max-sm:gap-3") &&
+    finalCtaSlice.includes("max-sm:w-8") &&
+    finalCtaSlice.includes("max-sm:tracking-[0.28em]") &&
     finalCtaSlice.includes("block whitespace-nowrap sm:inline") &&
     finalCtaSlice.includes("cta-final-copy") &&
     finalCtaSlice.includes("cta-final-actions") &&
@@ -382,7 +397,7 @@ assert.ok(
 );
 assert.ok(
   footerSlice.includes("footer-pin-mobile") &&
-    footerSlice.includes("h-6 w-6 shrink-0 sm:h-7 sm:w-7"),
+    footerSlice.includes("!h-6 !w-6 shrink-0 sm:!h-7 sm:!w-7"),
   "Footer location icon must match the mobile size of the other footer icons without changing desktop",
 );
 
@@ -442,8 +457,10 @@ for (const [title, icon] of [
   );
 }
 assert.ok(
-  servicesSlice.includes("xl:grid-cols-3") && servicesSlice.includes("2xl:grid-cols-4"),
-  "Services grid must remain balanced after adding the five new cards",
+  servicesSlice.includes("md:grid-cols-2") &&
+    servicesSlice.includes("lg:grid-cols-3") &&
+    !servicesSlice.includes("2xl:grid-cols-4"),
+  "Services grid must use three desktop columns without switching to four columns on wide screens",
 );
 
 for (const commitmentIcon of [

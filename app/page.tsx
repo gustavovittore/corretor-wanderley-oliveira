@@ -619,7 +619,7 @@ export default function Home() {
             titleClassName="services-title-mobile mobile-section-title max-w-5xl max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08]"
           />
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <PremiumCard
                 key={service.title}
@@ -665,7 +665,9 @@ export default function Home() {
               title={
                 <>
                   <span className="block">Autoridade, escuta e</span>
-                  <span className="block">condução segura para</span>
+                  <span className="block max-sm:whitespace-nowrap">
+                    condução segura para
+                  </span>
                   <span className="block text-[#D1AF66]">
                     decisões importantes.
                   </span>
@@ -673,7 +675,7 @@ export default function Home() {
               }
               text="Wanderley Oliveira atua como especialista imobiliário para quem busca orientação personalizada, análise cuidadosa e apoio completo durante a negociação."
               align="left"
-              titleClassName="about-title-tuned mobile-section-title max-w-[760px] max-sm:!text-[2.02rem] max-sm:leading-[1.08] sm:!text-[3rem] md:!text-[3.15rem] lg:!text-[3.25rem]"
+              titleClassName="about-title-tuned mobile-section-title max-w-[760px] max-sm:!text-[1.95rem] max-sm:leading-[1.08] sm:!text-[3rem] md:!text-[3.15rem] lg:!text-[3.25rem]"
               sectionTextClassName="about-intro-copy max-w-none lg:max-w-[800px]"
             />
             <p className="about-copy max-w-none text-[1.22rem] leading-9 text-white/82 sm:text-[1.34rem] sm:leading-10 lg:max-w-[800px]">
@@ -748,13 +750,18 @@ export default function Home() {
             eyebrow="Tipos de imóveis"
             title={
               <>
-                Atendimento para <span className="text-[#D1AF66]">diferentes</span>{" "}
-                perfis, objetivos e{" "}
-                <span className="text-[#D1AF66]">momentos.</span>
+                <span className="block sm:inline">Atendimento para</span>{" "}
+                <span className="block sm:inline">
+                  <span className="text-[#D1AF66]">diferentes</span> perfis,
+                </span>{" "}
+                <span className="block sm:inline">
+                  objetivos e{" "}
+                  <span className="text-[#D1AF66]">momentos.</span>
+                </span>
               </>
             }
             text="Uma experiência premium não precisa ser distante. O atendimento é claro, acessível e preparado para realidades diversas."
-            titleClassName="property-types-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08]"
+            titleClassName="property-types-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[1.95rem] max-sm:leading-[1.08]"
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {propertyTypes.map((type) => (
@@ -819,7 +826,7 @@ export default function Home() {
               }
               text="Um processo imobiliário bem conduzido depende de método, leitura, documentação, negociação e acompanhamento atento."
               align="left"
-              titleClassName="security-title mobile-section-title max-w-[660px] max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08] sm:!text-[3.18rem] md:!text-[3.52rem] lg:!text-[3.55rem]"
+              titleClassName="security-title mobile-section-title max-w-[660px] max-sm:max-w-[21.5rem] max-sm:!text-[1.95rem] max-sm:leading-[1.08] sm:!text-[3.18rem] md:!text-[3.52rem] lg:!text-[3.55rem]"
               sectionTextClassName="security-section-copy lg:max-w-[620px]"
             />
           </div>
@@ -872,7 +879,7 @@ export default function Home() {
               </>
             }
             text="Uma jornada organizada ajuda você a entender o que acontece em cada fase e a tomar decisões com mais tranquilidade."
-            titleClassName="process-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[2.02rem] max-sm:leading-[1.08]"
+            titleClassName="process-title-mobile mobile-section-title max-sm:mx-auto max-sm:max-w-[21.5rem] max-sm:!text-[1.95rem] max-sm:leading-[1.08]"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {process.map((step, index) => (
@@ -918,9 +925,12 @@ export default function Home() {
             </div>
 
             <h2 className="choice-title choice-title-mobile mx-auto max-w-[860px] max-sm:max-w-[21.5rem] font-serif text-[2rem] font-normal leading-[1.06] text-white sm:text-[4.2rem] sm:leading-[1.04] md:text-[4.65rem]">
-              <span className="block">Seu próximo imóvel pode</span>
-              <span className="block">estar mais perto do que</span>
-              <span className="block">você imagina.</span>
+              <span className="hidden sm:block">Seu próximo imóvel pode</span>
+              <span className="hidden sm:block">estar mais perto do que</span>
+              <span className="hidden sm:block">você imagina.</span>
+              <span className="block sm:hidden">Seu próximo imóvel</span>
+              <span className="block sm:hidden">pode estar mais perto</span>
+              <span className="block sm:hidden">do que você imagina.</span>
             </h2>
 
             <span className="mt-7 block h-[2px] w-16 bg-[#f3cd71] sm:mt-8" />
@@ -1064,7 +1074,7 @@ export default function Home() {
         id="contato"
         className="cta-final-section relative overflow-hidden bg-[#020202] px-5 pb-10 pt-16 sm:px-10 md:pb-14 md:pt-20 lg:px-16"
       >
-        <div className="cta-final-card solid-card relative z-10 mx-auto flex min-h-[500px] max-w-[1420px] flex-col items-center justify-center overflow-hidden rounded-[16px] border border-[#D1AF66]/58 bg-black/[0.58] px-6 py-14 text-center shadow-[0_30px_96px_rgba(0,0,0,0.6)] backdrop-blur-[2px] sm:px-12 md:min-h-[530px] md:px-16 md:py-16 lg:px-20">
+        <div className="cta-final-card solid-card relative z-10 mx-auto flex min-h-[500px] max-w-[1420px] flex-col items-center justify-center overflow-hidden rounded-[16px] border border-[#D1AF66]/58 bg-black/[0.58] px-5 py-14 text-center shadow-[0_30px_96px_rgba(0,0,0,0.6)] backdrop-blur-[2px] sm:px-12 md:min-h-[530px] md:px-16 md:py-16 lg:px-20">
           <Image
             src="/brand/2/bg-section-10-cta-footer.jpg.png"
             alt=""
@@ -1075,13 +1085,13 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.16)_0%,rgba(0,0,0,0.12)_35%,rgba(0,0,0,0.34)_63%,rgba(0,0,0,0.82)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.04)_42%,rgba(0,0,0,0.76)_100%)]" />
-          <div className="relative z-10 mx-auto mb-9 max-w-[1180px] md:mb-11">
-            <div className="mb-7 flex items-center justify-center gap-6">
-              <span className="h-[2px] w-14 bg-[#D1AF66]" />
-              <p className="text-[0.7rem] font-bold uppercase tracking-[0.42em] text-[#D1AF66] sm:text-[0.78rem]">
+          <div className="cta-final-mobile-content relative z-10 mx-auto mb-9 w-full max-w-[1180px] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:text-center md:mb-11">
+            <div className="cta-final-kicker mb-7 flex w-full items-center justify-center gap-6 max-sm:gap-3">
+              <span className="h-[2px] w-14 bg-[#D1AF66] max-sm:w-8" />
+              <p className="text-[0.7rem] font-bold uppercase tracking-[0.42em] text-[#D1AF66] max-sm:text-[0.62rem] max-sm:tracking-[0.28em] sm:text-[0.78rem]">
                 Atendimento direto
               </p>
-              <span className="h-[2px] w-14 bg-[#D1AF66]" />
+              <span className="h-[2px] w-14 bg-[#D1AF66] max-sm:w-8" />
             </div>
             <h2 className="cta-final-title cta-final-title-mobile mx-auto max-w-[1180px] max-sm:max-w-[22rem] font-serif text-[2.12rem] font-normal leading-[1.04] text-white sm:text-[4.1rem] md:text-[4.2rem] lg:text-[4.35rem]">
               <span className="block sm:inline">Fale agora com</span>{" "}
@@ -1207,7 +1217,7 @@ export default function Home() {
             </p>
             <div className="footer-map space-y-6 text-[0.98rem] leading-7 text-white/72">
               <p className="flex gap-4">
-                <LineIcon name="pin" className="footer-pin-mobile h-6 w-6 shrink-0 sm:h-7 sm:w-7" />
+                <LineIcon name="pin" className="footer-pin-mobile !h-6 !w-6 shrink-0 sm:!h-7 sm:!w-7" />
                 <span>
                   Rua Fausto Cardoso, número 1080
                   <span className="block">Capela/SE</span>
