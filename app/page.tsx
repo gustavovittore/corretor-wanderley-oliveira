@@ -534,6 +534,27 @@ export default function Home() {
 
         <div className="relative z-30 mx-auto flex min-h-[100svh] w-full max-w-[1540px] items-end px-6 pb-12 pt-32 sm:px-10 sm:pb-16 sm:pt-44 lg:items-center lg:px-16 lg:pb-20 lg:pt-28">
           <div className="w-full min-w-0 max-w-[760px] lg:translate-y-8 xl:translate-y-10">
+            <div className="hero-mobile-visual relative left-1/2 -mt-14 mb-9 h-[470px] w-screen -translate-x-1/2 overflow-hidden border-b border-[#D1AF66]/24 lg:hidden sm:-mt-20 sm:h-[620px]">
+              <Image
+                src="/brand/Mobile/hero-mobile-background.jpg.png"
+                alt=""
+                fill
+                priority
+                sizes="100vw"
+                aria-hidden="true"
+                className="object-cover object-center opacity-100"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.04)_38%,rgba(0,0,0,0.72)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.08)_44%,rgba(0,0,0,0.42)_100%)]" />
+              <Image
+                src="/brand/foto-wanderley-sem-fundo-principal.png.png"
+                alt="Wanderley Oliveira, corretor de imóveis"
+                width={760}
+                height={960}
+                priority
+                className="absolute bottom-0 left-1/2 h-auto w-[95%] max-w-[450px] -translate-x-1/2 drop-shadow-[0_30px_70px_rgba(0,0,0,0.75)] sm:max-w-[590px]"
+              />
+            </div>
             <div className="mb-9 flex items-center gap-6">
               <span className="h-[2px] w-12 bg-[#D1AF66]" />
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-[#D1AF66]">
@@ -558,16 +579,6 @@ export default function Home() {
               <GoldButton href="#servicos" variant="secondary">
                 Conhecer serviços
               </GoldButton>
-            </div>
-            <div className="relative mx-auto mt-9 flex w-full max-w-[430px] justify-center overflow-hidden border-b border-[#D1AF66]/24 lg:hidden">
-              <Image
-                src="/brand/foto-wanderley-sem-fundo-principal.png.png"
-                alt="Wanderley Oliveira, corretor de imóveis"
-                width={760}
-                height={960}
-                priority
-                className="h-auto w-[96%] translate-y-2 drop-shadow-[0_30px_70px_rgba(0,0,0,0.75)]"
-              />
             </div>
             <div className="mt-8 grid max-w-[360px] grid-cols-1 gap-3 text-white sm:mt-14 sm:max-w-3xl sm:grid-cols-3 sm:gap-5">
               {heroHighlights.map((item, index) => (

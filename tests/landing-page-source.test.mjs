@@ -556,6 +556,17 @@ assert.ok(
     heroSlice.includes("Conhecer servi"),
   "Hero section source markers changed unexpectedly",
 );
+const heroMobileVisualStart = heroSlice.indexOf("hero-mobile-visual");
+const heroEyebrowStart = heroSlice.indexOf("Consultoria imobili");
+assert.ok(heroMobileVisualStart !== -1, "Hero mobile visual block is missing");
+assert.ok(
+  heroSlice.includes("/brand/Mobile/hero-mobile-background.jpg.png"),
+  "Hero mobile visual block must use the dedicated mobile background image",
+);
+assert.ok(
+  heroMobileVisualStart < heroEyebrowStart,
+  "Hero mobile visual block must appear before the mobile hero text",
+);
 
 for (const marker of [
   "(79) 99662-6934",
